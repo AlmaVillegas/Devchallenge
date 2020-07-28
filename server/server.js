@@ -15,6 +15,7 @@ app.use(cors())
 
 app.use(jwt())
 app.use('/users', require('./users/controller'))
+app.use('/task', require('./task/controller'))
 app.use(error)
 
 app.set('puerto', process.env.PORT || 3000)

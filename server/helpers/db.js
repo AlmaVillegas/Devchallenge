@@ -12,5 +12,6 @@ mongoose.connect(url, connectionOptions).then(()=>{
 )
 
 module.exports = {
-  User: require('../users/model')
+  User: require('../users/model'),
+  Task: require('../task/model')
 }

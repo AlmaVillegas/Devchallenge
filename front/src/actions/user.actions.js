@@ -9,7 +9,7 @@ export const userActions = {
     register,
     getAll,
     delete: _delete
-};
+}
 
 function login(username, password) {
     return dispatch => {

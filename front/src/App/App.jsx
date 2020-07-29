@@ -8,6 +8,7 @@ import { PrivateRoute } from '../components'
 import { HomePage } from '../HomePage'
 import { LoginPage } from '../LoginPage'
 import { RegisterPage } from '../RegisterPage'
+import { RegisterTask } from '../RegisterTask'
 
 class App extends React.Component {
     constructor(props) {
@@ -32,6 +33,7 @@ class App extends React.Component {
                                 <PrivateRoute exact path="/" component={HomePage} />
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
+                                <Route path="/create" component={RegisterTask} />
                                 <Redirect from="*" to="/" />
                             </Switch>
                         </Router>

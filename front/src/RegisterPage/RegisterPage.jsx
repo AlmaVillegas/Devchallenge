@@ -38,37 +38,37 @@ function RegisterPage() {
             <h2>Register</h2>
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>First Name</label>
+                    <label>Nombre</label>
                     <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
                     {submitted && !user.firstName &&
-                        <div className="invalid-feedback">First Name is required</div>
+                        <div className="invalid-feedback">Es requerido</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Last Name</label>
+                    <label>Apellido</label>
                     <input type="text" name="lastName" value={user.lastName} onChange={handleChange} className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')} />
                     {submitted && !user.lastName &&
-                        <div className="invalid-feedback">Last Name is required</div>
+                        <div className="invalid-feedback">Es requerido</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Username</label>
+                    <label>Nombre de Usuario</label>
                     <input type="text" name="username" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')} />
                     {submitted && !user.username &&
-                        <div className="invalid-feedback">Username is required</div>
+                        <div className="invalid-feedback">Es requerido</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Password</label>
+                    <label>Contraseña</label>
                     <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
                     {submitted && !user.password &&
-                        <div className="invalid-feedback">Password is required</div>
+                        <div className="invalid-feedback">Es requerido</div>
                     }
                 </div>
                 <div className="form-group">
                     <button className="btn btn-primary">
                         {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Register
+                        Guardar
                     </button>
                     <Link to="/login" className="btn btn-link">Cancel</Link>
                 </div>

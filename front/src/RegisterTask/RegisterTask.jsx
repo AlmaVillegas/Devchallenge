@@ -2,79 +2,77 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { userActions } from '../actions'
+import { taskActions } from '../actions'
 
-function RegisterPage() {
-    const [user, setUser] = useState({
-        firstName: '',
-        lastName: '',
-        username: '',
-        password: ''
-    });
+function RegisterTask() {
+    const [task, setTask] = useState({
+        name: '',
+        description: '',
+        time: '',
+        status: ''
+    })
     const [submitted, setSubmitted] = useState(false)
     const registering = useSelector(state => state.registration.registering)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(userActions.logout())
-    }, [])
 
     function handleChange(e) {
         const { name, value } = e.target
-        setUser(user => ({ ...user, [name]: value }))
+        console.log('Hola en handleChange')
+        setTask(task => ({ ...task, [name]: value }))
     }
 
     function handleSubmit(e) {
         e.preventDefault()
 
         setSubmitted(true)
-        if (user.firstName && user.lastName && user.username && user.password) {
-            dispatch(userActions.register(user))
+        if (task.name && task.description && task.time && task.status) {
+            dispatch(taskActions.create(task))
         }
     }
 
     return (
         <div className="col-lg-8 offset-lg-2">
-            <h2>Register</h2>
+            <h2>Insertar tareas</h2>
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
-                    {submitted && !user.firstName &&
-                        <div className="invalid-feedback">First Name is required</div>
+                    <label>Nombre</label>
+                    <input type="text" name="name" value={task.name} onChange={handleChange} className={'form-control' + (submitted && !task.name ? ' is-invalid' : '')} />
+                    {submitted && !task.name &&
+                        <div className="invalid-feedback">Es requerido</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" value={user.lastName} onChange={handleChange} className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')} />
-                    {submitted && !user.lastName &&
-                        <div className="invalid-feedback">Last Name is required</div>
+                    <label>Descripción</label>
+                    <input type="text" name="description" value={task.description} onChange={handleChange} className={'form-control' + (submitted && !task.description ? ' is-invalid' : '')} />
+                    {submitted && !task.description &&
+                        <div className="invalid-feedback">Es requerido</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')} />
-                    {submitted && !user.username &&
-                        <div className="invalid-feedback">Username is required</div>
+                    <label>Tiempo p/realizar tarea</label>
+                    <input type="text" name="time" value={task.time} onChange={handleChange} className={'form-control' + (submitted && !task.time ? ' is-invalid' : '')} />
+                    {submitted && !task.time &&
+                        <div className="invalid-feedback">Es requerido</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
-                    {submitted && !user.password &&
-                        <div className="invalid-feedback">Password is required</div>
+                    <label>Estatus</label>
+                    <input type="text" name="status" value={task.status} onChange={handleChange} className={'form-control' + (submitted && !task.status ? ' is-invalid' : '')} />
+                    {submitted && !task.status &&
+                        <div className="invalid-feedback">Es requerido</div>
                     }
                 </div>
                 <div className="form-group">
                     <button className="btn btn-primary">
                         {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Register
+                        Guardar
                     </button>
-                    <Link to="/login" className="btn btn-link">Cancel</Link>
+                    <Link to="/" className="btn btn-link">Cancel</Link>
                 </div>
             </form>
         </div>
     )
 }
 
-export { RegisterPage }
+export { RegisterTask }

@@ -14,7 +14,7 @@ function create(task) {
     return dispatch => {
         dispatch(request(task))
 
-        taskService.register(task)
+        taskService.create(task)
             .then(
                 task => { 
                     dispatch(success())

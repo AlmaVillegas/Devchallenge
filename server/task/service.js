@@ -32,6 +32,7 @@ async function update(id, Param) {
     if (task.name !== Param.name && await Task.findOne({ name: Param.name })) {
         throw 'Task "' + Param.name + '" is already taken'
     }
+    Object.assign(task, Param)
     await task.save()
 }
 

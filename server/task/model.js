@@ -5,6 +5,7 @@ const schema = new Schema({
     name: { type: String, unique: true, required: true },
     description: { type: String, required: true },
     time: { type: Date, required: true },
+    status: {type: String, require: true},
     createdDate: { type: Date, default: Date.now }
 });
 

@@ -18,7 +18,6 @@ async function getById(id) {
 }
 
 async function create(Param) {
-    console.log(Param.name)
     if (await Task.findOne({ name: Param.name })) {
         throw 'Task "' + Param.name + '" is already taken'
     }

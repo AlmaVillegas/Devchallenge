@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { taskActions } from '../actions'
 
 function RegisterTask() {
@@ -11,14 +10,14 @@ function RegisterTask() {
         time: '',
         status: ''
     })
+    
     const [submitted, setSubmitted] = useState(false)
-    const registering = useSelector(state => state.registration.registering)
+    const registering = useSelector(state => state.registrationTask.registering)
     const dispatch = useDispatch()
 
-
+     
     function handleChange(e) {
         const { name, value } = e.target
-        console.log('Hola en handleChange')
         setTask(task => ({ ...task, [name]: value }))
     }
 
@@ -28,6 +27,7 @@ function RegisterTask() {
         setSubmitted(true)
         if (task.name && task.description && task.time && task.status) {
             dispatch(taskActions.create(task))
+            console.log(task)
         }
     }
 
@@ -50,7 +50,7 @@ function RegisterTask() {
                     }
                 </div>
                 <div className="form-group">
-                    <label>Tiempo p/realizar tarea</label>
+                    <label>Tiempo en realizar la tareas</label>
                     <input type="text" name="time" value={task.time} onChange={handleChange} className={'form-control' + (submitted && !task.time ? ' is-invalid' : '')} />
                     {submitted && !task.time &&
                         <div className="invalid-feedback">Es requerido</div>

@@ -9,6 +9,7 @@ import { HomePage } from '../HomePage'
 import { LoginPage } from '../LoginPage'
 import { RegisterPage } from '../RegisterPage'
 import { RegisterTask } from '../RegisterTask'
+import { TaskPage } from '../TaskPage'
 
 class App extends React.Component {
     constructor(props) {
@@ -34,6 +35,7 @@ class App extends React.Component {
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
                                 <Route path="/create" component={RegisterTask} />
+                                <Route path="/list" component={TaskPage}/>
                                 <Redirect from="*" to="/" />
                             </Switch>
                         </Router>

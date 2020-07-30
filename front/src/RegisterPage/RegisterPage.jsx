@@ -11,6 +11,7 @@ function RegisterPage() {
         username: '',
         password: ''
     });
+
     const [submitted, setSubmitted] = useState(false)
     const registering = useSelector(state => state.registration.registering)
     const dispatch = useDispatch()

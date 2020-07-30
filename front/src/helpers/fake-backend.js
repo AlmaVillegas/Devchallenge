@@ -23,7 +23,7 @@ export function configureFakeBackend() {
                         };
                         resolve({ ok: true, text: () => Promise.resolve(JSON.stringify(responseJson)) })
                     } else {
-                        reject('Username or password is incorrect')
+                        reject('Usuario o contraseña son incorrecto')
                     }
 
                     return
@@ -57,7 +57,7 @@ export function configureFakeBackend() {
                     let newUser = JSON.parse(opts.body)
                     let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length
                     if (duplicateUser) {
-                        reject('Username "' + newUser.username + '" is already taken')
+                        reject('Usuario "' + newUser.username + '" ya existe')
                         return;
                     }
                     newUser.id = users.length ? Math.max(...users.map(user => user.id)) + 1 : 1
@@ -114,7 +114,7 @@ export function configureFakeBackend() {
                     let newUser = JSON.parse(opts.body)
                     let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length
                     if (duplicateUser) {
-                        reject('Username "' + newUser.username + '" is already taken')
+                        reject('La tarea "' + newUser.username + '" ya existe')
                         return;
                     }
                     newUser.id = users.length ? Math.max(...users.map(user => user.id)) + 1 : 1

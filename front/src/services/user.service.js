@@ -9,21 +9,21 @@ export const userService = {
     getById,
     update,
     delete: _delete
-};
+} 
 
 function login(username, password) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
-    };
+    } 
 
     return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user))
             return user
-        });
+        }) 
 }
 
 function logout() {
@@ -34,7 +34,7 @@ function getAll() {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
-    };
+    } 
 
     return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse)
 }
@@ -43,7 +43,7 @@ function getById(id) {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
-    };
+    } 
 
     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse)
 }
@@ -53,7 +53,7 @@ function register(user) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
-    };
+    } 
 
     return fetch(`${config.apiUrl}/users/register`, requestOptions).then(handleResponse)
 }
@@ -63,7 +63,7 @@ function update(user) {
         method: 'PUT',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
-    };
+    } 
 
     return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse)
 }
@@ -72,7 +72,7 @@ function _delete(id) {
     const requestOptions = {
         method: 'DELETE',
         headers: authHeader()
-    };
+    } 
     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse)
 }
 

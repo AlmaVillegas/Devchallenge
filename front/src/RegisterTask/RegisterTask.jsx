@@ -27,7 +27,6 @@ function RegisterTask() {
         setSubmitted(true)
         if (task.name && task.description && task.time && task.status) {
             dispatch(taskActions.create(task))
-            console.log(task)
         }
     }
 

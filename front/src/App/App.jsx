@@ -17,11 +17,11 @@ class App extends React.Component {
 
         history.listen((location, action) => {
             this.props.clearAlerts()
-        });
+        }) 
     }
 
     render() {
-        const { alert } = this.props;
+        const { alert } = this.props 
         return (
             <div className="jumbotron">
                 <div className="container">
@@ -53,7 +53,7 @@ function mapState(state) {
 
 const actionCreators = {
     clearAlerts: alertActions.clear
-};
+} 
 
 const connectedApp = connect(mapState, actionCreators)(App)
 export { connectedApp as App }

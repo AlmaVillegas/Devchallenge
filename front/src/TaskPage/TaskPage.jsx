@@ -40,7 +40,7 @@ class TaskPage extends React.Component {
                   <Link to="/create">Crear Tarea</Link>
                 </p>
             </div>
-        );
+        ) 
     }
 }
 

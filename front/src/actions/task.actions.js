@@ -25,8 +25,8 @@ function create(task) {
                     dispatch(failure(error.toString()))
                     dispatch(alertActions.error(error.toString()))
                 }
-            );
-    };
+            ) 
+    } 
 
     function request(task) { return { type: taskConstants.REGISTER_REQUEST, task } }
     function success(task) { return { type: taskConstants.REGISTER_SUCCESS, task } }
@@ -41,8 +41,8 @@ function getAll() {
             .then(
                 task => dispatch(success(task)),
                 error => dispatch(failure(error.toString()))
-            );
-    };
+            ) 
+    } 
 
     function request() { return { type: taskConstants.GETALL_REQUEST } }
     function success(task) { return { type: taskConstants.GETALL_SUCCESS, task } }
@@ -51,14 +51,14 @@ function getAll() {
 
 function _delete(id) {
     return dispatch => {
-        dispatch(request(id));
+        dispatch(request(id)) 
 
         taskService.delete(id)
             .then(
                 task => dispatch(success(id)),
                 error => dispatch(failure(id, error.toString()))
-            );
-    };
+            ) 
+    } 
 
     function request(id) { return { type: taskConstants.DELETE_REQUEST, id } }
     function success(id) { return { type: taskConstants.DELETE_SUCCESS, id } }

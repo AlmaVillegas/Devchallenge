@@ -6,11 +6,11 @@ import { store } from './helpers'
 import { App } from './App'
 
 import { configureFakeBackend } from './helpers'
-configureFakeBackend();
+configureFakeBackend() 
 
 render(
     <Provider store={store}>
         <App />
     </Provider>,
     document.getElementById('app')
-);
+) 

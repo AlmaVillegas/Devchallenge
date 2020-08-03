@@ -2,7 +2,7 @@ import expressJwt from 'express-jwt'
 import userService from '../users/service'
 import Config from '../config.json'
 
-module.exports = jwt;
+module.exports = jwt 
 
 function jwt() {
     const secret = Config.secret
@@ -11,7 +11,7 @@ function jwt() {
             '/users/authenticate',
             '/users/register'
         ]
-    });
+    }) 
 }
 
 async function isRevoked(req, payload, done) {

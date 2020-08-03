@@ -7,7 +7,7 @@ const schema = new Schema({
     time: { type: String, required: true },
     status: {type: String, require: true},
     createdDate: { type: Date, default: Date.now }
-});
+}) 
 
 schema.set('toJSON', {
     virtuals: true,
@@ -15,6 +15,6 @@ schema.set('toJSON', {
     transform: function (doc, ret) {
         delete ret._id
     }
-});
+}) 
 
-module.exports = mongoose.model('Task', schema);
+module.exports = mongoose.model('Task', schema) 

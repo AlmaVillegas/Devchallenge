@@ -11,7 +11,7 @@ module.exports = {
     create,
     update,
     delete: _delete
-};
+} 
 
 async function authenticate({ username, password }) {
     const user = await User.findOne({ username })
@@ -21,7 +21,7 @@ async function authenticate({ username, password }) {
         return {
             ...user.toJSON(),
             token
-        };
+        } 
     }
 }
 
@@ -51,7 +51,7 @@ async function update(id, userParam) {
         throw 'Username "' + userParam.username + '" is already taken'
     }
     if (userParam.password) {
-        userParam.hash = bcrypt.hashSync(userParam.password, 10);
+        userParam.hash = bcrypt.hashSync(userParam.password, 10) 
     }
     Object.assign(user, userParam)
     await user.save()

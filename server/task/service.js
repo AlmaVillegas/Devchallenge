@@ -7,7 +7,7 @@ module.exports = {
     create,
     update,
     delete: _delete
-};
+} 
 
 async function getAll() {
     return await Task.find()
